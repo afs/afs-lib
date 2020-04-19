@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.seaborne.lib.uuid;
+package dev;
 
 public class NotesUUID {
     // Revisit time and state storage

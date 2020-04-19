@@ -28,113 +28,9 @@ import org.apache.jena.atlas.io.IO;
 
 public class ExecU1 {
 
-    static long time_last = 0;
-    static long uuids_this_tick = 0;
-    static long UUIDS_PER_TICK = 0;
-
-//    private static long  get_current_time() {
-//        if ( time_last == 0 ) {
-//            time_last = getSystemTime();
-//        }
-//        for(;;) {
-//            long time_now = getSystemTime();
-//            if (time_last < time_now) {
-//                /* reset count of uuids gen'd with this clock reading */
-//                uuids_this_tick = 0;
-//                time_last = time_now;
-//                break;
-//            }
-//            if (uuids_this_tick < UUIDS_PER_TICK) {
-//              uuids_this_tick++;
-//              break;
-//            }
-//        }
-//    }
-//
-//    // Assumed to move forward but may be jumpy.
-//    // Units: 100ns ticks.
-//    static long getSystemTime() {
-//        return 0L;
-//    }
-
-//    void get_current_time(uuid_time_t *timestamp)
-//    {
-//        static int inited = 0;
-//        static uuid_time_t time_last;
-//        static unsigned16 uuids_this_tick;
-//        uuid_time_t time_now;
-//
-//        if (!inited) {
-//            get_system_time(&time_now);
-//            uuids_this_tick = UUIDS_PER_TICK;
-//            inited = 1;
-//        }
-//
-//        for ( ; ; ) {
-//            get_system_time(&time_now);
-//
-//            /* if clock reading changed since last UUID generated, */
-//            if (time_last != time_now) {
-//                /* reset count of uuids gen'd with this clock reading */
-//                uuids_this_tick = 0;
-//                time_last = time_now;
-//                break;
-//            }
-//            if (uuids_this_tick < UUIDS_PER_TICK) {
-//                uuids_this_tick++;
-//                break;
-//            }
-//            /* going too fast for our clock; spin */
-//        }
-//        /* add the count of uuids to low order bits of the clock reading */
-//        *timestamp = time_now + uuids_this_tick;
-//    }
-
-//    void get_system_time(uuid_time_t *uuid_time)
-//    {
-//        struct timeval tp;
-//
-//        gettimeofday(&tp, (struct timezone *)0);
-//
-//        /* Offset between UUID formatted times and Unix formatted times.
-//           UUID UTC base time is October 15, 1582.
-//           Unix base time is January 1, 1970.*/
-//        *uuid_time = ((unsigned64)tp.tv_sec * 10000000)
-//            + ((unsigned64)tp.tv_usec * 10)
-//            + I64(0x01B21DD213814000);
-//    }
-
     public static void main(String... args) {
-        //examine();
+        examine();
         timing();
-    }
-
-    public static void generateSome() {
-        for ( int i = 0 ; i < 10 ; i++ ) {
-            UUID u1 = UUIDFactory.generateV1();
-            System.out.printf("%-2d: %s\n",i,u1.toString());
-        }
-    }
-
-    public static void systemTick() {
-        // Experimentally this ticks every 10 base units. = microseconds
-        long x = UUIDCreatorV1.nowSystemTicks();
-        // Wait until tick.
-        for(;;) {
-            long x1 = UUIDCreatorV1.nowSystemTicks();
-            if ( x1 != x ) {
-                x = x1;
-                break;
-            }
-        }
-        // Wait until tick.
-        for(;;) {
-            long x1 = UUIDCreatorV1.nowSystemTicks();
-            if ( x1 != x ) {
-                System.out.printf("%d \n", x1-x);
-                return;
-            }
-        }
     }
 
     public static void timing() {
@@ -193,6 +89,34 @@ public class ExecU1 {
 //        System.out.println(s);
 //        UUID u2 = LibUUID1.parse(s);
 //        System.out.println(u2.toString());
+    }
+
+    public static void generateSome() {
+        for ( int i = 0 ; i < 10 ; i++ ) {
+            UUID u1 = UUIDFactory.generateV1();
+            System.out.printf("%-2d: %s\n",i,u1.toString());
+        }
+    }
+
+    public static void systemTick() {
+        // Experimentally this ticks every 10 base units. = microseconds
+        long x = UUIDCreatorV1.nowSystemTicks();
+        // Wait until tick.
+        for(;;) {
+            long x1 = UUIDCreatorV1.nowSystemTicks();
+            if ( x1 != x ) {
+                x = x1;
+                break;
+            }
+        }
+        // Wait until tick.
+        for(;;) {
+            long x1 = UUIDCreatorV1.nowSystemTicks();
+            if ( x1 != x ) {
+                System.out.printf("%d \n", x1-x);
+                return;
+            }
+        }
     }
 
     static void examine(String label, String x) {
