@@ -27,14 +27,12 @@ import java.util.ArrayList ;
 import java.util.Arrays ;
 import java.util.List ;
 
-import org.apache.jena.atlas.logging.LogCtl ;
 import org.apache.jena.atlas.test.ExecGenerator ;
 import org.apache.jena.atlas.test.RepeatExecution ;
-import structure.exthash.ExtHashMem ;
-import structure.exthash.ExtHashMemTestBase ;
-
 import org.apache.jena.tdb.index.ext.ExtHash ;
 import org.apache.jena.tdb.sys.SystemTDB ;
+import structure.exthash.ExtHashMem ;
+import structure.exthash.ExtHashMemTestBase ;
 
 public abstract class ExtHashMemRun
 {
@@ -144,7 +142,6 @@ public abstract class ExtHashMemRun
 
     List<String> processArgs(List<String> args)
     {
-        LogCtl.setLog4j() ;
         int i = 0 ;
         while ( args.size()>0 )
         {

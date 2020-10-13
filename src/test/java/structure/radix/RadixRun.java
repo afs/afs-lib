@@ -34,7 +34,7 @@ public class RadixRun
 {
     public static void main(String ...argv)
     { 
-        LogCtl.setLog4j() ;
+        LogCtl.setLogging();
         LogCtl.enable(RadixTree.class) ;
         //RadixTree.logging = false ;
         

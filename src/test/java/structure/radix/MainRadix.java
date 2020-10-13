@@ -50,7 +50,7 @@ public class MainRadix
 
     public static void main(String ...argv)
     { 
-        LogCtl.setLog4j() ;
+        LogCtl.setLogging();
         //runJUnit() ;
         RadixTreeImpl.checking = true ;
         RadixTreeImpl.logging = false ;

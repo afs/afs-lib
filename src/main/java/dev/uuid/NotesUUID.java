@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package dev;
+package dev.uuid;
 
 public class NotesUUID {
     // Revisit time and state storage
@@ -26,10 +26,5 @@ public class NotesUUID {
     // except when USE_REAL_ADDRESS is false
     // except block allocator for time controlled by UUIDS_PER_BLOCK.
 
-    // 2020-04:
-    //    Spin, block of 10 - ~4.5 million/s (warmedup), 25 => 6-7m/s
-    //    Spin, block of 1 - ~1 million/s,
-    //    Block of 10, sleep(1) ~ 25K/s
-    //    UUID.randomUUID(), 2 million/s.
 }
 

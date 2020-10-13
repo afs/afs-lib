@@ -29,7 +29,6 @@ import java.util.ArrayList ;
 import java.util.Arrays ;
 import java.util.List ;
 
-import org.apache.jena.atlas.logging.LogCtl ;
 import org.apache.jena.atlas.test.ExecGenerator ;
 import org.apache.jena.atlas.test.RepeatExecution ;
 import structure.avl.AVL ;
@@ -107,7 +106,6 @@ public abstract class SkipListRun
     
     List<String> processArgs(List<String> args)
     {
-        LogCtl.setLog4j() ;
         int i = 0 ;
         while ( args.size()>0 )
         {

@@ -109,16 +109,16 @@ public class UUIDCreatorV1 implements UUIDCreator {
     // this is safe. NB clock_seq is 14 bits of random number (16 million) as well.
     private static final long UUIDS_PER_BLOCK = 25;
 
-    // How many bit to use for the clock sequence. Maximum 14.
+    // How many bits to use for the clock sequence. Maximum 14.
     // Smaller number leave a signature fixed hex pattern in the UUID.
     private static final int CLOCK_BITS = 14;
 
 //    // Milliseconds. Set to about the frequency interval of the system clock, if used.
 //    private final long DELAY_MS = 1;
 
-    // Whether to use the MAC address or a 48 bit random number (actually 46 bits to random because
-    // 2 bits used to make sure it does not clash with a real MAC address).
-    /*apckage*/ static final boolean USE_REAL_ADDRESS = true;
+    // Whether to use the MAC address or a 48 bit random number (actually 46 bits of random because
+    // 2 bits are used to make sure it does not clash with a real MAC address).
+    /*package*/ static final boolean USE_REAL_ADDRESS = true;
 
     // Generator variables.
 
@@ -149,11 +149,15 @@ public class UUIDCreatorV1 implements UUIDCreator {
     /** Generate a UUID version 1 from this generator */
     @Override
     public UUID create() {
-        // This implementation free runs for UUIDS_PER_BLOCK, then reset the clock,
-        // checking the clock has moved forward enough.
+        // This implementation free runs for UUIDS_PER_BLOCK, incrementing uuids_this_tick.
+        // Then it resets the clock, checking the clock has moved forward enough.
         long timestamp = 0;
         synchronized (this) {
             if ( uuids_this_tick >= UUIDS_PER_BLOCK ) {
+                // Sets
+                // uuids_this_tick
+                // time_last = new start of tick time.
+                // uuid_time 
                 setTime();
             }
             timestamp = uuid_time + uuids_this_tick;
@@ -181,11 +185,11 @@ public class UUIDCreatorV1 implements UUIDCreator {
         return clockSeq == other.clockSeq && node == other.node;
     }
 
-    /** Return the stable key for this generator */
-    private Object key() {
-        long x = ((long)clockSeq << 48) | node ;
-        return x;
-    }
+//    /** Return the stable key for this generator */
+//    private Object key() {
+//        long x = ((long)clockSeq << 48) | node ;
+//        return x;
+//    }
 
     private UUID generate(long timestamp) {
         return generate(VERSION, VARIANT, timestamp, clockSeq, node);
@@ -240,9 +244,10 @@ public class UUIDCreatorV1 implements UUIDCreator {
     }
 
     // Current time, from the OS system epoch base,
-
+    /*package*/ final static long dev_nowSystemTicks() { return nowSystemTicks(); }    
+    
     // Reported in 100ns units but granularity is more like 10-20 units (1-2us).
-    /*private*/ final static long nowSystemTicks() {
+    private final static long nowSystemTicks() {
         if ( false ) {
             // Old style.
             long x = System.currentTimeMillis();

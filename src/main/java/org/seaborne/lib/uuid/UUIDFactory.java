@@ -28,4 +28,3 @@ public class UUIDFactory {
     /** Generate a UUID version 1. It uses a internal singleton {@linkplain UUIDCreatorV1} generator. */
     public static UUID generateV1() { return generator.create(); }
 }
-

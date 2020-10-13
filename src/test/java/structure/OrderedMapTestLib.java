@@ -27,7 +27,6 @@ import org.apache.jena.atlas.iterator.Iter ;
 import org.apache.jena.atlas.test.ExecGenerator ;
 import org.apache.jena.atlas.test.Gen ;
 import org.apache.jena.atlas.test.RepeatExecution ;
-import structure.OrderedMap ;
 
 public class OrderedMapTestLib {
 

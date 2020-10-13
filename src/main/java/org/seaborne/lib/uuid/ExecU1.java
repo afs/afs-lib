@@ -100,10 +100,10 @@ public class ExecU1 {
 
     public static void systemTick() {
         // Experimentally this ticks every 10 base units. = microseconds
-        long x = UUIDCreatorV1.nowSystemTicks();
+        long x = UUIDCreatorV1.dev_nowSystemTicks();
         // Wait until tick.
         for(;;) {
-            long x1 = UUIDCreatorV1.nowSystemTicks();
+            long x1 = UUIDCreatorV1.dev_nowSystemTicks();
             if ( x1 != x ) {
                 x = x1;
                 break;
@@ -111,7 +111,7 @@ public class ExecU1 {
         }
         // Wait until tick.
         for(;;) {
-            long x1 = UUIDCreatorV1.nowSystemTicks();
+            long x1 = UUIDCreatorV1.dev_nowSystemTicks();
             if ( x1 != x ) {
                 System.out.printf("%d \n", x1-x);
                 return;
