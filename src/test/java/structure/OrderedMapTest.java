@@ -18,6 +18,7 @@
 package structure;
 
 import static org.apache.jena.atlas.lib.RandomLib.random;
+
 import org.apache.jena.atlas.test.ExecGenerator;
 
 class OrderedMapTest implements ExecGenerator

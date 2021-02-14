@@ -17,15 +17,16 @@
 
 package structure.radix;
 
+import static org.junit.Assert.*;
+import static structure.radix.Str.str ;
+
 import java.nio.ByteBuffer ;
 import java.util.Iterator ;
 import java.util.List ;
 
-import static org.junit.Assert.*;
-import static structure.radix.Str.str ;
-import org.junit.Test ;
 import org.apache.jena.atlas.AtlasException ;
 import org.apache.jena.atlas.iterator.Iter ;
+import org.junit.Test ;
 
 public class TestRadix
 {

@@ -18,6 +18,7 @@
 package structure.skiplist;
 
 import static java.lang.String.format ;
+
 import org.apache.jena.atlas.io.IndentedLineBuffer ;
 import org.apache.jena.atlas.io.IndentedWriter ;
 import org.apache.jena.atlas.io.Printable ;

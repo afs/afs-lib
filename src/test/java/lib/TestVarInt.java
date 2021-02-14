@@ -17,12 +17,13 @@
 
 package lib;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.nio.ByteBuffer;
 
-import org.junit.Test;
 import org.apache.jena.atlas.lib.ByteBufferLib;
+import org.junit.Test;
 
 public class TestVarInt {
     @Test public void varint_01() {

@@ -17,13 +17,13 @@
 
 package structure.red_black;
 
+import static structure.red_black.RBTreeNode.Colour.RED;
+
 import java.util.Iterator ;
 
 import org.apache.jena.atlas.io.IndentedWriter ;
 import org.apache.jena.atlas.io.PrintUtils ;
 import org.apache.jena.atlas.io.Printable ;
-
-import static structure.red_black.RBTreeNode.Colour.* ;
 
 
 /** Reb-Black tree nodes */  

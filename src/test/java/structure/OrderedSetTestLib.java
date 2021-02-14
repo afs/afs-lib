@@ -17,12 +17,13 @@
 
 package structure;
 
-import org.apache.jena.atlas.iterator.Iter;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.*;
 
-import static org.junit.Assert.* ;
-
+import org.apache.jena.atlas.iterator.Iter;
 import org.apache.jena.atlas.test.ExecGenerator;
 import org.apache.jena.atlas.test.Gen;
 import org.apache.jena.atlas.test.RepeatExecution;

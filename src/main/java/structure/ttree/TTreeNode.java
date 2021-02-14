@@ -24,7 +24,6 @@ import java.util.List ;
 import java.util.Objects ;
 
 import lib.ArrayOps ;
-
 import org.apache.jena.atlas.io.IndentedWriter ;
 import org.apache.jena.atlas.io.PrintUtils ;
 import org.apache.jena.atlas.io.Printable ;

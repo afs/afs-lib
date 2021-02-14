@@ -17,10 +17,10 @@
 
 package structure.ttree;
 
-import structure.OrderedSet;
-import structure.OrderedSetTestLib;
 import org.apache.jena.atlas.io.IndentedWriter;
 import org.apache.jena.atlas.test.Gen;
+import structure.OrderedSet;
+import structure.OrderedSetTestLib;
 
 public class MainTTree
 {

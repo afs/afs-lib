@@ -17,12 +17,12 @@
 
 package structure.radix;
 
-import org.junit.Test ;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.apache.jena.tdb.base.record.Record ;
 import org.apache.jena.tdb.base.record.RecordFactory ;
+import org.junit.Test ;
 
 public class TestRadixIndex
 {

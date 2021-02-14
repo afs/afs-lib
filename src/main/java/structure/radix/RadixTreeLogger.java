@@ -17,7 +17,8 @@
 
 package structure.radix;
 
-import static structure.radix.Str.* ;
+import static structure.radix.Str.str;
+
 import java.nio.ByteBuffer ;
 import java.util.Iterator ;
 

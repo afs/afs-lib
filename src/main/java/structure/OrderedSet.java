@@ -17,10 +17,10 @@
 
 package structure;
 
-import org.apache.jena.atlas.io.Printable;
-
 import java.util.Iterator;
 import java.util.List;
+
+import org.apache.jena.atlas.io.Printable;
 
 // May change to allow duplicates -- OrderedBag
 public interface OrderedSet<T extends Comparable<? super T>> extends Iterable<T>, Printable
